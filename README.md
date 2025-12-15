@@ -14,25 +14,35 @@ A modern, responsive portfolio website showcasing my skills, projects, and exper
 ## 🚀 Features
 
 - ✨ **Modern UI/UX** - Clean, professional design with smooth animations
-- 🎨 **Dark/Light Mode** - Toggle between dark and light themes
+- 🎨 **Dark/Light Mode** - Toggle between dark and light themes with persistent storage
 - 📱 **Fully Responsive** - Optimized for desktop, tablet, and mobile devices
 - ⚡ **Fast Performance** - Built with Vite for lightning-fast load times
 - 🎯 **SEO Optimized** - Proper meta tags and semantic HTML
 - 🌊 **Glassmorphism Effects** - Modern glass-morphic design elements
 - 🎭 **Interactive Animations** - Smooth transitions and hover effects
-- 📧 **Contact Form** - Easy way to get in touch
+- 📧 **Contact Form** - Easy way to get in touch via email
+- 🔝 **Scroll-to-Top Button** - Floating action button with smooth scroll (appears after 300px)
+- 🍔 **Enhanced Mobile Menu** - Solid white background in light mode with no transparency
+- ♿ **Keyboard Accessible** - Full keyboard navigation support with focus indicators
+
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **React 18** - Modern React with hooks
+- **React 18** - Modern React with hooks (useState, useEffect, useMemo)
 - **Vite** - Next-generation frontend tooling
-- **CSS3** - Custom styling with modern CSS features
-- **FontAwesome** - Beautiful icon library
+- **CSS3** - Custom styling with CSS variables, animations, and responsive design
+- **FontAwesome** - Beautiful icon library with solid and brand icons
+
+### Key Features Implementation
+- **Theme Switching** - localStorage persistence for user preferences
+- **Scroll Detection** - Custom hook for scroll-to-top button visibility
+- **Mobile Menu** - Body class toggling to disable header blur effects
+- **Smooth Scrolling** - Native browser smooth scroll behavior
 
 ### Fonts
-- **Playfair Display** - Elegant headings
-- **Inter** - Clean, readable body text
+- **Playfair Display** - Elegant serif font for headings
+- **Inter** - Clean, readable sans-serif for body text
 
 ## 📦 Installation
 
@@ -85,23 +95,25 @@ Siddhesh_Haldankar_Portfolio/
 
 ## 🌐 Deployment
 
-This portfolio is configured for deployment on multiple platforms:
+This portfolio is currently deployed on **Vercel** for optimal performance and automatic deployments.
 
-- **Netlify** - Configuration in `netlify.toml`
-- **Vercel** - Configuration in `vercel.json`
-- **Firebase** - Configuration in `firebase.json`
-
-### Deploy to Netlify
-
-1. Push your code to GitHub
-2. Import the repository in Netlify
-3. Netlify will automatically detect the build settings
-
-### Deploy to Vercel
+### Deploy to Vercel (Recommended)
 
 1. Push your code to GitHub
 2. Import the repository in Vercel
-3. Vercel will automatically build and deploy
+3. Vercel will automatically detect the build settings from `vercel.json`
+4. Deploy with one click!
+
+**Alternative Deployment Options:**
+- Firebase - Configuration in `firebase.json`
+
+### Build Configuration
+
+The project uses Vite with the following build settings configured in `vercel.json`:
+- Build command: `npm run build`
+- Output directory: `dist`
+- Node version: 18.x
+
 
 ## 📧 Contact
 
@@ -110,6 +122,28 @@ This portfolio is configured for deployment on multiple platforms:
 - Specializing in Java, React, Spring Boot
 
 Feel free to reach out through the contact form on the portfolio website!
+
+## 📝 Recent Updates
+
+### Version 2.0 - UI Enhancement Release (December 2024)
+
+**Mobile Menu Improvements:**
+- ✅ Fixed transparency issues in light mode
+- ✅ Implemented solid white background with `background-image: none`
+- ✅ Disabled header blur when menu is open via `body.menu-open` class
+- ✅ Updated overlay opacity from 50% to 35% for better UX
+- ✅ Increased z-index to 9999 for proper layering
+
+**New Features:**
+- ✅ Floating scroll-to-top button with smooth scroll animation
+- ✅ Appears after scrolling 300px down the page
+- ✅ Purple gradient styling matching theme colors
+- ✅ Keyboard accessible with proper focus indicators
+- ✅ Responsive design (50px desktop, 45px mobile)
+
+**Performance:**
+- ✅ Optimized transitions for better mobile performance
+- ✅ Removed unnecessary backdrop-filter effects
 
 ## 📄 License
 
