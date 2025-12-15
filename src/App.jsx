@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareLinkedin, faGithub, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faPhone, faBars, faTimes, faMapMarkerAlt, faCode, faServer, faLayerGroup, faCubes } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faBars, faTimes, faMapMarkerAlt, faCode, faServer, faLayerGroup, faCubes, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 const palette = {
   light: { label: 'Light', icon: '☀️' },
@@ -152,6 +152,7 @@ function App() {
   const [theme, setTheme] = useState('light');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [formStatus, setFormStatus] = useState('');
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     const stored = window.localStorage.getItem('theme');
@@ -165,6 +166,27 @@ function App() {
     window.localStorage.setItem('theme', theme);
   }, [theme]);
 
+  // Toggle body class when menu opens/closes
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.classList.add("menu-open");
+    } else {
+      document.body.classList.remove("menu-open");
+    }
+
+    return () => document.body.classList.remove("menu-open");
+  }, [mobileMenuOpen]);
+
+  // Scroll-to-top button visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const heroHeadline = useMemo(
     () => 'Building scalable web applications with clean code and exceptional user experiences. Let\'s turn your ideas into reality.',
     []
@@ -176,6 +198,10 @@ function App() {
 
   const handleNavClick = () => {
     setMobileMenuOpen(false);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSubmit = (e) => {
@@ -409,6 +435,18 @@ function App() {
       <footer className="footer">
         © 2025 Siddhesh Haldankar. All rights reserved.
       </footer>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          className="scroll-to-top"
+          onClick={scrollToTop}
+          aria-label="Scroll to top"
+          title="Scroll to top"
+        >
+          <FontAwesomeIcon icon={faArrowUp} />
+        </button>
+      )}
     </div >
   );
 }
