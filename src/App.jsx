@@ -411,8 +411,8 @@ function App() {
               <div style={{ marginTop: 30 }}>
                 <a
                   className="btn primary"
-                  href="/Siddhesh_Haldankar_Associate_Software_Engineer_Resume.pdf"
-                  download="Siddhesh_Haldankar_Associate_Software_Engineer_Resume.pdf"
+                  href="/Siddhesh_Haldankar_Full_Stack_Developer_Resume.pdf"
+                  download="Siddhesh_Haldankar_Full_Stack_Developer_Resume.pdf"
                 >
                   Download CV
                 </a>
