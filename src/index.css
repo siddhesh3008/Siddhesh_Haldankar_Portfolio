@@ -704,6 +704,47 @@ body.menu-open header {
   transform: scale(1.04);
 }
 
+.project-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.project-link.demo {
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #fff;
+  border: none;
+}
+
+.project-link.demo:hover {
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.35);
+  transform: translateY(-2px);
+  color: #fff;
+}
+
 .about {
   display: grid;
   grid-template-columns: 1fr 1.2fr;

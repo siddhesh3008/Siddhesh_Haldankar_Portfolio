@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareLinkedin, faGithub, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faPhone, faBars, faTimes, faMapMarkerAlt, faCode, faServer, faLayerGroup, faCubes, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faBars, faTimes, faMapMarkerAlt, faCode, faServer, faLayerGroup, faBrain, faArrowUp, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 const palette = {
   light: { label: 'Light', icon: '☀️' },
@@ -12,18 +12,19 @@ const skills = [
   { name: 'Java', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
   { name: 'Spring Boot', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg' },
   { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+  { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+  { name: 'Express.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
   { name: 'Python', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-  { name: 'C', logo: '/images/c-logo.png' },
-  { name: 'C++', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
+  { name: 'FastAPI', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
+  { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
   { name: 'HTML5', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
   { name: 'CSS3', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
-  { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { name: 'Tailwind CSS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
   { name: 'MySQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
   { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
   { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-  { name: 'VS Code', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
   { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-  { name: 'Jupyter', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg' },
+  { name: 'VS Code', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
   { name: 'Postman', logo: 'https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg' }
 ];
 
@@ -47,18 +48,36 @@ const services = [
     number: '03'
   },
   {
-    title: 'Blockchain Integration',
-    desc: 'Smart contract development and decentralized application solutions',
-    icon: faCubes,
+    title: 'AI Integration',
+    desc: 'Intelligent solutions with OpenAI, NLP, and machine learning integration',
+    icon: faBrain,
     number: '04'
   }
 ];
 
 const projects = [
   {
+    title: 'AI Productivity App',
+    desc: 'Smart productivity platform with AI-powered task management, notes, and scheduling features.',
+    tech: ['Node.js', 'Express.js', 'React', 'MongoDB', 'Tailwind', 'JWT', 'REST API', 'AI/ML', 'OpenAI'],
+    link: 'https://github.com/siddhesh3008/AI-Productivity-App',
+    demo: 'https://ai-productivity-app-siddhesh.vercel.app',
+    image: '/images/ai-productivity-app.png',
+    category: 'Full-Stack'
+  },
+  {
+    title: 'Job Application Tracker',
+    desc: 'Personal ATS to track job applications with analytics dashboard and status monitoring.',
+    tech: ['Python', 'React', 'FastAPI', 'Tailwind', 'Recharts', 'Axios', 'REST API', 'SQL'],
+    link: 'https://github.com/siddhesh3008/Job-Application-Tracker',
+    demo: 'https://job-application-tracker-siddhesh.vercel.app',
+    image: '/images/job-application-tracker.png',
+    category: 'Full-Stack'
+  },
+  {
     title: 'Online Food Ordering System',
     desc: 'Full-stack platform with JWT authentication, React UI, Spring Boot backend, and SQL database.',
-    tech: ['Spring Boot', 'React', 'Tailwind', 'JWT', 'REST API', 'SQL'],
+    tech: ['Spring Boot', 'React', 'Redux', 'Axios', 'Tailwind', 'JWT', 'REST API', 'SQL'],
     link: 'https://github.com/siddhesh3008/Spring-Boot_Food-Ordering-System',
     image: '/images/food-ordering.png',
     category: 'Full-Stack'
@@ -74,7 +93,7 @@ const projects = [
   {
     title: 'Weather App',
     desc: 'Real-time weather application with location-based forecasts using OpenWeatherMap API integration.',
-    tech: ['JavaScript', 'API', 'UI'],
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'API', 'UI'],
     link: 'https://github.com/siddhesh3008/weather-app',
     image: '/images/weather-app.png',
     category: 'Web App'
@@ -82,7 +101,7 @@ const projects = [
   {
     title: 'Enotes & Password Manager',
     desc: 'Secure Django application for encrypted note-taking and credential storage with authentication.',
-    tech: ["Python", "Django", "Security", "SQLite"],
+    tech: ['Python', 'Django', 'Security', 'SQLite'],
     link: 'https://github.com/siddhesh3008/enotes-password-manager',
     image: '/images/enotes.png',
     category: 'Web App'
@@ -90,17 +109,9 @@ const projects = [
   {
     title: 'Scientific Calculator',
     desc: 'Java Swing desktop calculator with advanced scientific functions and intuitive user interface.',
-    tech: ['Java', 'Swing', 'UI'],
+    tech: ['Core Java', 'Swing', 'UI'],
     link: 'https://github.com/siddhesh3008/Scientific-Calculator',
     image: '/images/scientific-calculator.png',
-    category: 'Desktop App'
-  },
-  {
-    title: 'Flight Management System',
-    desc: 'C++ desktop application managing flight bookings, route scheduling, and customer complaint handling.',
-    tech: ['C++', 'Data Structures'],
-    link: 'https://github.com/siddhesh3008/flight-management-system',
-    image: '/images/flight-management-system.png',
     category: 'Desktop App'
   },
   {
@@ -123,7 +134,7 @@ const heroLogo = '/images/hero_illustration.png';
 const portraitUrl = '/images/hero__image.png';
 
 const ProjectCard = ({ project, index }) => (
-  <a className="card" href={project.link} target="_blank" rel="noreferrer">
+  <div className="card">
     <div
       className="project-media"
       style={{
@@ -145,7 +156,17 @@ const ProjectCard = ({ project, index }) => (
         </span>
       ))}
     </div>
-  </a>
+    <div className="project-links">
+      <a href={project.link} target="_blank" rel="noreferrer" className="project-link">
+        <FontAwesomeIcon icon={faGithub} /> GitHub
+      </a>
+      {project.demo && (
+        <a href={project.demo} target="_blank" rel="noreferrer" className="project-link demo">
+          <FontAwesomeIcon icon={faExternalLinkAlt} /> Live Demo
+        </a>
+      )}
+    </div>
+  </div>
 );
 
 function App() {
@@ -188,7 +209,7 @@ function App() {
   }, []);
 
   const heroHeadline = useMemo(
-    () => 'Building scalable web applications with clean code and exceptional user experiences. Let\'s turn your ideas into reality.',
+    () => 'Crafting full-stack web applications with AI integration, clean architecture, and intuitive user experiences. Ready to bring your ideas to life.',
     []
   );
 
@@ -208,21 +229,20 @@ function App() {
     e.preventDefault();
     setFormStatus('submitting');
 
-    const data = new FormData(e.target);
-    const name = data.get('name');
-    const email = data.get('email');
-    const message = data.get('message');
-    const subject = encodeURIComponent(`Portfolio inquiry from ${name || 'Visitor'}`);
-    const body = encodeURIComponent(`From: ${name} (${email})\n\n${message}`);
+    const formData = new FormData(e.target);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    const message = formData.get('message');
 
-    setTimeout(() => {
-      setFormStatus('success');
-      e.target.reset(); // Clear the form fields
-      setTimeout(() => {
-        window.location.href = `mailto:siddhesh.haldankar30@gmail.com?subject=${subject}&body=${body}`;
-        setFormStatus(''); // Reset form status after redirect
-      }, 1000);
-    }, 500);
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nMessage:\n${message}`);
+
+    window.location.href = `mailto:siddhesh.haldankar30@gmail.com?subject=${subject}&body=${body}`;
+
+    setFormStatus('success');
+    e.target.reset();
+    setTimeout(() => setFormStatus(''), 5000);
   };
 
   return (
@@ -270,11 +290,11 @@ function App() {
             <div className="achievement-badges">
               <div className="badge-item">
                 <span className="badge-icon">🚀</span>
-                <span className="badge-text">7+ Projects</span>
+                <span className="badge-text">8+ Projects</span>
               </div>
               <div className="badge-item">
                 <span className="badge-icon">💼</span>
-                <span className="badge-text">Full-Stack Expert</span>
+                <span className="badge-text">Open to Work</span>
               </div>
               <div className="badge-item">
                 <span className="badge-icon">⭐</span>
@@ -302,7 +322,7 @@ function App() {
           <div className="bio">
             <h3>About Me</h3>
             <p>
-              Hi! I’m Siddhesh M. Haldankar, a passionate Full-Stack Developer with a strong foundation in Java, Spring Boot, React, and modern cloud technologies. My journey in tech started with a deep curiosity for how things work, eventually leading me to become the Computer Science topper in junior college—and since then, I’ve been obsessed with building meaningful digital experiences.
+              Hi! I'm Siddhesh M. Haldankar, a Full-Stack Developer and University of Mumbai alumnus. From topping Computer Science in junior college to building production-ready applications, I've always been driven by curiosity. I specialize in Java, Spring Boot, React, and cloud technologies, creating scalable solutions that seamlessly connect robust backends with intuitive user experiences.
             </p>
             <p>
               I believe in staying adaptable in a fast-moving industry, continuously sharpening my skills and exploring emerging technologies like Generative AI and cloud-native development. Whether it's crafting seamless front-end interfaces or developing robust back-end systems, I love turning ideas into real, functional solutions.
@@ -391,8 +411,8 @@ function App() {
               <div style={{ marginTop: 30 }}>
                 <a
                   className="btn primary"
-                  href="/Siddhesh_Haldankar_Associate_Software_Engineer.pdf"
-                  download="Siddhesh_Haldankar_Associate_Software_Engineer.pdf"
+                  href="/Siddhesh_Haldankar_Associate_Software_Engineer_Resume.pdf"
+                  download="Siddhesh_Haldankar_Associate_Software_Engineer_Resume.pdf"
                 >
                   Download CV
                 </a>
@@ -400,7 +420,28 @@ function App() {
             </div>
             <div className="contact-card">
               <div className="service-title">Contact Form</div>
-              <form className="form" onSubmit={handleSubmit}>
+              <form
+                className="form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  setFormStatus('submitting');
+
+                  const formData = new FormData(e.target);
+                  const name = formData.get('name');
+                  const email = formData.get('email');
+                  const phone = formData.get('phone');
+                  const message = formData.get('message');
+
+                  const subject = encodeURIComponent(`Portfolio Inquiry from ${name}`);
+                  const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nMessage:\n${message}`);
+
+                  window.location.href = `mailto:siddhesh.haldankar30@gmail.com?subject=${subject}&body=${body}`;
+
+                  setFormStatus('success');
+                  e.target.reset();
+                  setTimeout(() => setFormStatus(''), 5000);
+                }}
+              >
                 <label>
                   Name
                   <input name="name" type="text" placeholder="Your name" required />
@@ -411,20 +452,17 @@ function App() {
                 </label>
                 <label>
                   Contact No.
-                  <input name="Contact No." type="tel" placeholder="Your Contact No." />
+                  <input name="phone" type="tel" placeholder="Your Contact No." />
                 </label>
                 <label>
                   Message
                   <textarea name="message" placeholder="Your Message" required />
                 </label>
                 <button className="btn primary" type="submit" disabled={formStatus === 'submitting'}>
-                  {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
+                  {formStatus === 'submitting' ? 'Opening Email...' : 'Send Message'}
                 </button>
                 {formStatus === 'success' && (
-                  <div className="form-message success">Message prepared! Opening email client...</div>
-                )}
-                {formStatus === 'error' && (
-                  <div className="form-message error">Something went wrong. Please try again.</div>
+                  <div className="form-message success">Your email app is ready! Just hit send to reach me.</div>
                 )}
               </form>
             </div>
@@ -433,7 +471,7 @@ function App() {
       </main>
 
       <footer className="footer">
-        © 2025 Siddhesh Haldankar. All rights reserved.
+        © {new Date().getFullYear()} Siddhesh Haldankar. All rights reserved.
       </footer>
 
       {/* Scroll to Top Button */}
